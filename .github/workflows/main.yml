@@ -32,4 +32,9 @@ jobs:
           # Password or personal access token used to log against the Docker registry
           password: ${{ env.password }}
     
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: wordeur/simple-api:latest
       
