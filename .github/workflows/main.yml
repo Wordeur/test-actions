@@ -30,7 +30,7 @@ jobs:
         env: 
           SECRET: ${{ secrets.TEST_SECRET }}"
         run: |
-          printenv
+          echo "TEST AFFICHAGE SECRET : " $SECRET
           
       - name: Test print value
         run: |
