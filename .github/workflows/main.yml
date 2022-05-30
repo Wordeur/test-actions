@@ -2,6 +2,10 @@
 
 name: build-ci
 
+env:
+  login: ${{ secrets.DOCKER_LOGIN }}
+  password: ${{ secrets.DOCKER_PASSWORD }}
+  
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
@@ -16,9 +20,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      login: ${{ secrets.DOCKER_LOGIN }}
-      password: $${{ secrets.DOCKER_PASSWORD }}
       
     steps:
       - uses: actions/checkout@v3
@@ -27,8 +28,8 @@ jobs:
         uses: docker/login-action@v2.0.0
         with:
           # Username used to log against the Docker registry
-          username: $login
+          username: ${{ secrets.DOCKER_LOGIN }}
           # Password or personal access token used to log against the Docker registry
-          password: $password
+          password: ${{ secrets.DOCKER_PASSWORD }}
     
       
