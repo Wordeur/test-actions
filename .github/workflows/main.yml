@@ -27,6 +27,10 @@ jobs:
       - name: Test
         run: |
           ls -all
+          
+      - name: Display run_id
+        run: |
+          echo run id: ${{ github.run_id }}
         
       - name: Docker Login
         uses: docker/login-action@v2.0.0
